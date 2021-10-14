@@ -1,7 +1,7 @@
-export class Store {
+export class Store<T> {
   private subscribers: Function[];
   private reducers: { [key: string]: Function };
-  private state: { [key: string]: any };
+  private state: { [key: string]: T };
 
   constructor(reducers = {}, initialState = {}) {
     this.subscribers = [];

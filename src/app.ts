@@ -1,4 +1,4 @@
-import { Todo } from "./model";
+import { Todo, TodoState } from "./model";
 import * as fromStore from "./store";
 
 import { renderTodos } from "./utils";
@@ -16,7 +16,7 @@ const reducers = {
 };
 
 // Create only one store from one or many reducers
-const store = new fromStore.Store(reducers);
+const store = new fromStore.Store<TodoState>(reducers);
 
 // Add new TODO to list
 addTodoButton.addEventListener(

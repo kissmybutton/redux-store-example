@@ -1,8 +1,12 @@
+const path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   entry: './src/app.ts',
+  devtool: 'inline-source-map',
   output: {
-    filename: 'app.js',
-    path: __dirname + '/dist/',
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
     port: 8000,
@@ -14,8 +18,15 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: 'awesome-typescript-loader',
+        use: 'ts-loader',
+        exclude: /node_modules/
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+    }),
+  ]
 };

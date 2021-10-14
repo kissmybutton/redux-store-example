@@ -1,10 +1,10 @@
-import { Todo } from "../model";
+import { Todo, TodoState } from "../model";
 import * as fromActions from "./actions";
 
-export const initialState = {
+export const initialState: TodoState = {
   loaded: false,
   loading: false,
-  data: [{ label: "Eat pizza", complete: false }],
+  data: [],
 };
 
 export function reducer(
